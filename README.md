@@ -31,31 +31,42 @@ This application requires a PostgreSQL database to be available for connections.
 If you are using a PostgreSQL instance running in a Docker container, and would like persistent storage, please ensure you have configured a volume. Without a volume, any data in your database will be lost when the container is stopped or removed.
 
 ## Running the Application
-This proccess is easier to troubleshoot if you are running it in a code editor like VS code. Ensure your current working directory is the cloned repository, then run:
+This process is easier to troubleshoot if you are running it in a code editor like VS code. Ensure your current working directory is the cloned repository, then run:
 ```
 code .
 ```
+Great! Now you are in a code editor. This application requires environment variables for the database connection. Navigate into the server directory and create an .env file:
+```
+cd server
+touch .env
+```
+Now, add the following to the file:
+```
+DB_CONNECTION_STRING='postgres://your_user:your_password@localhost:your_port/your_database'
+```
+Don't forget to save! Cool! We can continue.
+
 ### Server-side
-Great! Now you are in a code editor. Let's spin up the server, run:
+Let's spin up the server. Run the following commands:
 ```
 cd server
 npm install
 npm run start
 ```
 If successful, you will see `Your server is running on http://localhost:8080` in the console.
-Yay! Let's move on to the next step. Run Ctl + C to exit nodemon, and navigate back to the root directory:
+Yay! Let's move on to the next step. Open a new terminal for the client side. Or run Ctrl + C to exit nodemon, and navigate back to the root directory:
 ```
 cd ..
 ```
 
 ### Client-side
-Okay, let's start up the client-side, run:
+Okay, let's start up the client-side. Run the following commands:
 ```
 cd client
 npm install
 npm run dev
 ```
-If successfull, you will see
+If successful, you will see
 
 ```
 VITE v6.2.4  ready in 241 ms
